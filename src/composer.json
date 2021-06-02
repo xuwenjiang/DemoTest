@@ -1,0 +1,9 @@
+{
+    "name": "xwj/php-test",
+    "description": "example php tests",
+    "type": "project",
+    "require": {
+        "php": ">=7.1",
+        "phpunit/phpunit": "^7.5"
+    }
+}
