@@ -1,5 +1,5 @@
 <?php
-include("/var/www/Class/Person.php");
+include(__DIR__."/../App/Class/Person.php");
 
 use PHPUnit\Framework\TestCase;
 

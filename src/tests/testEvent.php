@@ -1,5 +1,5 @@
 <?php
-include(__DIR__."/../Event/JackGoesToShaxianForChickenRice.php");
+include(__DIR__."/../App/Event/JackGoesToShaxianForChickenRice.php");
 use PHPUnit\Framework\TestCase;
 
 class TestEvent extends TestCase {
