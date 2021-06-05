@@ -3,17 +3,10 @@ include(__DIR__."/../Class/Person.php");
 include(__DIR__."/../Class/Cafe.php");
 
 class JackGoesToShaxianForChickenRice {
-    protected $_jack = null;
-    protected $_shaxian = null;
-
-    public function __construct() {
-        $this->_jack = new Person('Jack');
-        $this->_shaxian = new Cafe('Shaxian', ['Chicken Rice', 'Pork Rice', 'Hundun', 'Chicken Noodle']);
-    }
-
+    
     public function doEvent() {
-        $shanxian = $this->_getShaxian();
-        $jack = $this->_getJack();
+        $jack = $this->getJack();
+        $shanxian = $this->getShaxian();
         
         // Jack moves to Shaxian
         $cafeName = $shanxian->getName();
@@ -28,11 +21,14 @@ class JackGoesToShaxianForChickenRice {
         return "All done";
     }
 
-    public function _getJack() {
-        return $this->_jack;
+    /**
+     * @return Person
+     */
+    public function getJack() {
+        return new Person('Jack');
     }
 
-    public function _getShaxian() {
-        return $this->_shaxian;
+    public function getShaxian() {
+        return new Cafe('Shaxian', ['Chicken Rice', 'Chicken Noodle', 'Pork Rice', 'Hundun']);
     }
 }

@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 class TestEvent extends TestCase {
     /**
-     * 这是一个不好的测试：
+     * 这是一个测试：
      * 你觉得这个函数doEvent执行了，结果是All done，而且完美的覆盖了代码
      */
     public function testDoEventBadly() {
@@ -47,17 +47,28 @@ class TestEvent extends TestCase {
         // mock event
         $mockedEvent = $this->getMockBuilder(JackGoesToShaxianForChickenRice::class)
             ->enableOriginalConstructor()
-            ->setMethods(['_getJack','_getShaxian'])
+            ->setMethods(['getJack','getShaxian'])
             ->getMock();
 
+        /** @var MockObject */
         $mockedEvent->expects($this->exactly(1))
-            ->method('_getJack')
+            ->method('getJack')
             ->will($this->returnValue($mockedJack));
 
         $mockedEvent->expects($this->exactly(1))
-            ->method('_getShaxian')
+            ->method('getShaxian')
             ->will($this->returnValue($mockedCafe));
 
         $this->assertEquals('All done', $mockedEvent->doEvent());
+    }
+
+    public function testInitJack() {
+        $event = new JackGoesToShaxianForChickenRice();
+        $this->assertEquals('Person', get_class($event->getJack()));
+    }
+
+    public function testInitShaxian() {
+        $event = new JackGoesToShaxianForChickenRice();
+        $this->assertEquals('Cafe', get_class($event->getShaxian()));
     }
 }

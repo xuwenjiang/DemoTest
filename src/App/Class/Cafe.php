@@ -2,7 +2,6 @@
 
 Class Cafe {
     protected $_name = null;
-
     protected $_food = [];
 
     public function __construct($name, $food) {
