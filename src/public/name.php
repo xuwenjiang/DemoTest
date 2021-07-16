@@ -1,3 +1,3 @@
 <?php
 
-$xwj = "Wenjiang XU";
+$xwj = "WENJIANG XU";
